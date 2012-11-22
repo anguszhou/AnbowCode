@@ -1,0 +1,189 @@
+/*****
+** corejava_day2
+** allandou
+** 100215
+**/
+1:java 发展
+			1.4 5.0  6.0
+2:JAVAME:手机 嵌入式 
+	JAVASE:
+	JAVAEE：面向企业开发
+3:java环境配置
+	1：软件安装	
+	2：JAVA_HOME（1.6）  path  Classpath   java  javac
+				java -version  1.6
+			oracle	
+											 1.4
+	3：java  javac  javadoc  jar	
+	
+			1):// 单行注释
+			2):	/* */ 注释单行 也 可以注释多行
+			3):	/**  
+					*   这种注释生成javadoc
+					*/									 
+	4: 有关包
+			package 公司域名倒写+项目名称+模块名称
+				javac -d 
+	5：jar
+					java -classpath
+					Main-Class
+					
+day2:
+		java的基础知识
+			1：java的基本数据类型：   
+					byte
+					char
+					boolean
+					short
+					int
+					long
+					float
+					double
+			2:引用数据类型
+					数组
+					类  
+					接口
+
+					String
+变量：
+			修饰符  数据类型  名称
+			
+			private int age;
+public class User{
+			
+			private int age;
+			
+			public void show(){
+			
+				String name;
+				
+			}
+				public void show(){
+			
+				String name;
+				
+			}
+}
+
+class ScopeVar {
+    public static void main(String [ ] args) {
+        int num = 10;	
+        if ( num == 10) { 
+            int num1 = num * num;
+            System.out.println(“num 和 num1 的值为" + num + "   " + num1);
+        }
+				访问num1出错
+       System.out.println(“num 1的值为" + num1);
+   }
+}
+
+控制流语句的类型
+
+判断语句
+		if-else 语句
+		switch-case 语句
+		表达式的取值：char int short byte 枚举
+			switch (表达式) {
+        case 1:
+            操作 1 的语句;
+            break;
+        case 2:
+            操作 2 的语句;
+            break;
+            ….
+         case n :
+            操作 n 的语句;
+            break;
+
+        default:
+            默认语句; 
+    }
+
+循环语句
+		while 循环
+		do-while 循环  循环体至少做一次
+		for 循环
+		
+面对对象
+	1：EVERYTHING IS OBJECT 
+			1)有什么 ==》属性
+			2)做什么 ==》方法
+	2：关键点：
+			1);依赖性
+			2):自己做自己的
+			3):可重用性
+类和对象
+		类：主观抽象，是对象的模板，可以实例化对象   new(spring)
+				1）定义属性：实例变量
+				2）面向过程是先有算法，后有数据结构
+				3）面向对象是先有数据结构，然后再有算法
+				4）在一个java文件里面可以写多个类 只有一个是public
+				5） 创建对象的过程(不存在继承关系)
+						1）为对象分配存储空间, 
+						2）为成员变量赋初始值
+						2）调用构造方法
+				6）构造方法
+						访问控制修饰符(public) 类名(){}
+						
+					
+面对对象编程
+		1：封装
+				1：该私有化的私有，该公开的公开
+							属性都是私有,提供公开访问方法
+							
+							User{
+							private	String name;
+								
+								private set
+											
+								get
+							}
+							
+			2:在一个类的构造方法种使用本类的另外一个构造方法this出现在第一行
+				基本数据类型的参数
+  		 	按值传递
+				引用类型的参数按引用传递
+			3：方法的重载
+						1：方法名必须相同,不考虑返回类型，参数列表不相同
+						
+	继承：
+					1：泛化:把子类的共性抽成父类
+					2：特化:在原有的父类中添加相应的特性
+					生成对象的过程
+							1：递归构造父类对象
+							2：分配空间
+							3: 初使化属性
+							4：本类构造方法
+							
+					3：访问控制修饰符
+							public         全部公开
+							
+							protected      本类 子类 同包
+													
+														
+							private        本类
+多态
+				1：对象类型不变
+				2：只能对对象调用编译时类型中定义的方法。
+				3：运行时寻找子类覆盖后的方法
+				
+				方法的覆盖：
+							1：方法名,参数 返回类型 。相同 方法的修饰符
+							2：异常(子《父)
+eclipse 集成 subeclipse
+				1：解压缩site-1.4.8.zip 好后自己建立以下的目录结构
+								subeclipse ==>eclipse==>site.xml 
+				2：在eclipse的建立links的文件夹，在links文件夹里面
+						建立后缀名为.link的文件内容如下
+							path=D:\\tools\\subeclipse
+						路径就是到插件eclipse的上一级目录
+				3：dos启动eclipse  eclipse.exe -clear
+			下载工程	
+				1：新建立资源库
+							new https://172.1.11.32:8443/svn/projectdb
+							直接完成
+				2：右点击项目 选择 检出为 直接完成(前提是工作目录没有同名的工程，
+					如果右同名工程修改工程名)。
+				
+		
+				

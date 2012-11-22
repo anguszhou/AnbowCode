@@ -1,0 +1,60 @@
+
+集合
+     1. 定义：用于管理存储其他若干对象的对象。
+		*数组：最基本的一个集合，缺陷是长度不可变。
+		*若干类+若干接口=集合框架
+		*集合接口层次结构
+              		Collection 
+                   	   ↑ 
+             	      |ˉˉˉˉˉˉ|     
+            	     Set         List        Map 
+		      ↑                      ↑
+		   SortedSet               SortedMap
+
+             		1）List: 有顺序的，元素可以重复
+			2）Set： 无顺序的，元素不可重复
+			3）SortedSet：和Set接口相同，元素按升序排列; 
+			4）Map: (key-value对)存储了唯一关键字标识和对应的值。key不允许重复，value可以重复。
+			5）SortedMap: 和Map接口相同，元素按关键字的升序排列。 
+		*集合类层次结构    
+          	    HashSet     LinkedList     HashMap,Hashtable 
+                     (Set)    Vector, ArrayList    
+                                  (List)           (Map) 
+             	       ↑                            ↑ 
+           	      TreeSet                     TreeMap 
+                    (SortedSet)                 (SortedMap) 
+
+    2. 请同学们通过查阅API来更好的学习Collection、Set、List、Map、SortedSet、SortedMap。
+    3. List接口的实现类
+	1）ArrayList: 底层用数组实现的List.
+		*遍历：for循环或者iterator迭代
+		*排序：java.util.Collections.sort()默认是升序。
+			#写自定义类时，一般implements java.lang.Comparable,实现compareTo()方法，自定义排序规则。实现接口回调。
+		*特点：查询速度快，增删速度慢。 
+	2）Vector: 底层用数组实现的List.
+		*特点：与ArrayList相比，ArrayList是轻量级的类，占用系统资源少，线程不安全；Vector是重量级的类，占用系统资源多，线程安全。
+		*在考虑并发的情况下用Vector（保证线程的安全），在不考虑并发的情况下用ArrayList（不能保证线程的安全）。
+	3）LinkedList: 底层用双向循环链表实现的List.
+		*特点：查询速度慢，增删速度快。
+	4）Stack类：Vector的直接子类（不良的设计）。继承了Vector中很多不适合自己的方法，不要轻易使用Stack.
+   4. Set接口的实现类
+	   HashSet:  
+		*遍历：只能iterator迭代，遍历结果是无顺序的，元素不是重复的。（指元素内容不重复，而不是对象不可重复）
+			#HashSet存储元素的过程： 为保证元素内容不重复，写自定义类时，要覆盖Object类中的equels()方法，hashCode()方法。要保证元			         素内容不相同的元素哈希码值一定不相同，元素内容相同的元素哈希码值一定相同，而且equals（）方法的返回值为true。
+			#HashSet存储元素的过程： 首先会调用 hashCode()方法来得到对象哈希码值，并用此值对数组长度求模，得到数组的下标，再把此对象			 	 放到此下标位置，存储对象时，如果对象哈希码相同，就会自动调用 equals() 方法。
+		*排序：
+			#方法1：HashSet中的所有元素放到TreeSet中，调用addAll()方法，然后将TreeSet中的元素打印出来。
+			#方法2：HashSet中的所有元素放到ArrayList中，调用addAll()方法，然后将ArrayList中的元素打印出来。
+  
+   6. Map接口的实现类
+	注：key一般是8种基本类型的封装类或者是String类，拿自己自定义的类作为Key没有意义。
+	1）HashMap:
+		*遍历：
+			#方法1：先调用values()得到values的collection集合，再迭代遍历values的collection集合。
+			#方法2：先调用keySet()得到key的set集合，再迭代遍历key的set集合，根据key得到value。
+	2）Hashtable：一般不使用。
+	3）HashMap与Hashtable的区别：
+		HashMap：非线程安全，轻量级的，允许空的键值对。
+		Hashtable：是线程安全，重量级的，不允许有空的键值对。
+      
+  

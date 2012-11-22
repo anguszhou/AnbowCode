@@ -1,0 +1,15 @@
+try
+｛
+  。。。。。
+
+ return 0;  //  程序会继续执行finally的代码； 
+System.exit(0); // 强行跳出虚拟机，不会再执行finally中的代码；
+｝
+catch (Exception e)
+{
+  .....
+}
+finally
+{
+   ......
+}
